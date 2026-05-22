@@ -1,34 +1,72 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-p:last-child {
-  margin-bottom: 0;
+body {
+  margin: 0;
+  font-family: 'Work Sans', sans-serif;
+  color: #0b0803;
+  background-color: #f5fdfd;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
+ul,
+ol {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 a {
-  color: currentColor;
   text-decoration: none;
-}
-
-button {
-  cursor: pointer;
 }
 
 img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Comfortaa', system-ui;
+  margin: 0;
+}
+
+.section-title {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+p {
+  margin: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
