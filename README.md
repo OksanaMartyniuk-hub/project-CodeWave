@@ -5,7 +5,7 @@
 - **Тімлід:** Oksana Martyniuk
 - **Скраммастер:** Пінчук Дмитро
 - **Розробники:** Andrei Sidorciuc, Lada, Nikita Anohin, Svitlana Levchenko,
-  Veronika Sarabun, Volodymyr, Іра Камінь, sveta-veta13
+  Veronika Sarabun, Volodymyr, Іра Камінь
 
 Сучасний та привабливий вебсайт для кондитерської студії.
 
