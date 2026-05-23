@@ -1,0 +1,94 @@
+.review {
+  padding: 64px 0;
+}
+
+.review-container {
+  padding: 0 20px;
+}
+
+.review-title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.review-subtitle {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.review-box {
+  border: 2px solid currentColor;
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 0;
+}
+
+.review-swiper {
+  margin-bottom: 32px;
+}
+
+.review-pagination {
+  position: static !important;
+  transform: none !important;
+  margin-right: auto;
+}
+
+.review-pagination .swiper-pagination-bullet {
+  background-color: #080c0c;
+  opacity: 0.3;
+}
+
+.review-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.review-controls {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.review-desc {
+  margin: 24px 0;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.review-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  border: 2px solid #080c0c;
+  background-color: #f5fdfd;
+  flex-shrink: 0;
+}
+
+.review-btn.next {
+  margin-left: 16px;
+}
+
+.review-btn.next .icon-arrow {
+  transform: rotate(180deg);
+}
+
+.icon-arrow {
+  display: block;
+  color: #080c0c;
+}
+
+.review-controls {
+  display: flex;
+}
