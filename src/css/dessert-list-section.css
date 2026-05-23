@@ -1,0 +1,469 @@
+.loader {
+  margin: 0 auto;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+}
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid var(--color-wewak);
+  animation: prixClipFix 2s linear infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+}
+
+.loader.is-hidden {
+  display: none;
+}
+
+.desserts {
+  padding: 64px 0;
+}
+.desserts-title {
+  margin-bottom: 24px;
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--color-scheme-1-text);
+}
+
+.desserts-heading {
+  margin-bottom: 40px;
+}
+
+.desserts-top {
+  margin-bottom: 40px;
+}
+.desserts-subtitle {
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--color-scheme-1-text);
+}
+
+.desserts-select-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.desserts-select-trigger {
+  position: relative;
+
+  border: 2px solid var(--color-neutral-darker);
+  border-radius: 6px;
+  padding: 0 12px;
+  width: 100%;
+  min-height: 40px;
+  background-color: var(--opacity-transparent);
+  text-align: left;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-scheme-1-text);
+
+  cursor: pointer;
+}
+
+.desserts-select-icon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+
+  fill: var(--color-neutral-darkest);
+  opacity: 0.6;
+}
+
+.desserts-filter-wrapper {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 10;
+
+  max-width: 100%;
+  width: 100%;
+
+  padding: 8px 11px 8px 0px;
+
+  border: 2px solid var(--color-neutral-darker);
+  border-radius: 6px;
+
+  background-color: var(--color-ice-cold-lighter);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 250ms ease,
+    visibility 250ms ease;
+}
+
+.desserts-filter {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.desserts-filter::-webkit-scrollbar {
+  width: 8px;
+}
+
+.desserts-filter::-webkit-scrollbar-track {
+  background-color: var(--color-wewak-light);
+  border-radius: 100px;
+
+  border: 1px solid var(--color-ice-cold-lighter);
+}
+
+.desserts-filter::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background-color: var(--color-wewak-darker);
+}
+
+.desserts-select-wrapper.is-open .desserts-filter-wrapper {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.desserts-select-wrapper.is-open .desserts-select-trigger {
+  background-color: var(--color-ice-cold-lighter);
+}
+
+.desserts-select-wrapper.is-open .desserts-select-icon {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.desserts-filter-button {
+  width: 100%;
+
+  padding: 12px;
+
+  border: none;
+  background-color: transparent;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.desserts-filter-button.is-active {
+  background-color: var(--color-scheme-3-foreground);
+}
+
+.desserts-filter-button:hover {
+  background-color: var(--opacity-neutral-darkest-10);
+}
+
+.desserts-list {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: stretch;
+
+  width: 100%;
+}
+.desserts-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  max-width: 100%;
+  width: 100%;
+  border: 1px solid var(--color-scheme-1-border);
+  border-radius: 16px;
+  background-color: var(--color-scheme-1-foreground);
+
+  transition: transform 0.3s;
+}
+
+.desserts-card-media {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  width: 100%;
+  aspect-ratio: 303 / 228;
+  overflow: hidden;
+}
+.desserts-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.desserts-card-category {
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-scheme-1-text);
+}
+.desserts-card-title {
+  margin-bottom: 4px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-scheme-1-text);
+}
+.desserts-card-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-scheme-1-text);
+}
+.desserts-card-bottom {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+}
+.desserts-card-price {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--color-scheme-1-text);
+}
+.desserts-card-button {
+  margin-left: auto;
+  border: 2px solid var(--color-neutral-darkest);
+  border-radius: 100px;
+  padding: 10px;
+  width: 44px;
+  height: 44px;
+  background-color: transparent;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.desserts-card-button:hover,
+.desserts-card-button:focus {
+  background-color: var(--color-wewak);
+}
+
+.desserts-card-button:active {
+  background-color: var(--color-wewak-dark);
+}
+
+.desserts-card-icon {
+  fill: var(--color-neutral-darkest);
+}
+
+.desserts-load-more {
+  border: 1px solid var(--color-wewak);
+  border-radius: 100px;
+  padding: 0 24px;
+  width: 100%;
+  min-height: 44px;
+  background-color: var(--color-wewak);
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-neutral-darkest);
+
+  transition:
+    border 0.3s,
+    background-color 0.3s,
+    opacity 0.3s;
+}
+
+.desserts-load-more.is-hidden {
+  display: none;
+}
+
+.desserts-load-more:hover,
+.desserts-load-more:focus {
+  border: 2px solid var(--color-neutral-darkest);
+}
+
+.desserts-load-more:active {
+  border: 2px solid var(--color-neutral-darkest);
+  background-color: var(--color-wewak-light);
+}
+
+.desserts-load-more:disabled {
+  opacity: 0.3;
+}
+
+@media only screen and (min-width: 768px) {
+  .desserts-title {
+    text-align: left;
+  }
+
+  .desserts-heading {
+    margin-bottom: 0;
+    max-width: 420px;
+  }
+
+  .desserts-top {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .desserts-subtitle {
+    text-align: left;
+  }
+
+  .desserts-select-wrapper {
+    margin-left: auto;
+    width: 256px;
+  }
+
+  .desserts-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px 16px;
+  }
+
+  .desserts-card {
+    width: calc((100% - 16px) / 2);
+  }
+
+  .desserts-card-media {
+    aspect-ratio: 312 / 234;
+  }
+
+  .desserts-load-more {
+    display: block;
+    margin: 0 auto;
+    max-width: 344px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .desserts {
+    padding: 80px 0;
+  }
+
+  .desserts-title {
+    font-size: 48px;
+    text-align: center;
+  }
+
+  .desserts-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .desserts-heading {
+    margin-bottom: 40px;
+    max-width: 100%;
+  }
+
+  .desserts-subtitle {
+    text-align: center;
+  }
+
+  .desserts-select-wrapper {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .desserts-select-trigger {
+    display: none;
+  }
+
+  .desserts-filter-wrapper {
+    position: relative;
+    top: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    opacity: 1;
+    visibility: inherit;
+    pointer-events: all;
+
+    background-color: transparent;
+  }
+
+  .desserts-filter {
+    overflow-y: visible;
+    max-height: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 32px;
+    justify-content: center;
+  }
+
+  .desserts-filter-button {
+    width: auto;
+    padding: 0 24px;
+    min-height: 44px;
+
+    border: 2px solid var(--color-neutral-darkest);
+    border-radius: 100px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-neutral-darkest);
+
+    transition: background-color 0.3s;
+  }
+
+  .desserts-filter-button.is-active {
+    background-color: var(--color-wewak-dark);
+  }
+
+  .desserts-filter-button:hover {
+    background-color: var(--color-wewak);
+  }
+
+  .desserts-filter-button:active {
+    background-color: var(--color-wewak-dark);
+  }
+
+  .desserts-list {
+    gap: 40px 24px;
+  }
+
+  .desserts-card {
+    width: calc((100% - 72px) / 4);
+
+    transition: transform 0.3s;
+  }
+
+  .desserts-load-more {
+    max-width: 198px;
+  }
+}
+
+@media (hover: hover) {
+  .desserts-card:hover {
+    transform: scale(1.03);
+  }
+}
