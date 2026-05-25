@@ -1,0 +1,149 @@
+/* ── Overlay ──────────────────────────────────────────────── */
+#orderOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(8, 12, 12, 0.5);
+  z-index: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#orderOverlay[hidden] {
+  display: none !important;
+}
+
+/* ── Modal ────────────────────────────────────────────────── */
+.order-modal {
+  background: #f5fdfd;
+  border-radius: 16px;
+  padding: 64px;
+  width: 100%;
+  max-width: 768px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .order-modal {
+    padding: 40px 24px;
+  }
+}
+
+/* ── Close button ─────────────────────────────────────────── */
+.order-modal .modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: 1.5px solid var(--color-neutral-darkest);
+  border-radius: 6px;
+  font-size: 1rem;
+  color: var(--color-neutral-darkest);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--tr);
+}
+
+.order-modal .modal__close:hover {
+  opacity: 0.6;
+}
+
+/* ── Title ────────────────────────────────────────────────── */
+.order-modal__title {
+  font-family: var(--second-family);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-neutral-darkest);
+  margin-bottom: 48px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* ── Form ─────────────────────────────────────────────────── */
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-neutral-darkest);
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 20px;
+  border: 2px solid var(--color-neutral-darker);
+  border-radius: 100px;
+  background-color: var(--color-white);
+  font-size: 16px;
+  color: var(--color-neutral-darkest);
+  transition: border-color 0.3s;
+  outline: none;
+  appearance: none;
+}
+
+.form-input:focus {
+  border-color: var(--color-wewak);
+}
+
+.form-input.error {
+  border-color: var(--color-error, #d50000);
+}
+
+.form-input::placeholder {
+  color: var(--color-neutral);
+}
+
+.form-textarea {
+  border-radius: 16px;
+  resize: vertical;
+  min-height: 160px;
+}
+
+/* ── Submit ───────────────────────────────────────────────── */
+.form-submit-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.form-submit {
+  padding: 14px 48px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: var(--color-wewak);
+  border: none;
+  color: var(--color-neutral-darkest);
+  border-radius: 100px;
+  min-width: 220px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-submit:hover {
+  background-color: var(--color-wewak-dark);
+}
+
+/* ── Errors ───────────────────────────────────────────────── */
+.form-error {
+  display: none;
+  font-size: 12px;
+  color: var(--color-error, #d50000);
+  padding-left: 4px;
+}

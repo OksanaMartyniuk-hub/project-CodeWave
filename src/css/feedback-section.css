@@ -6,6 +6,10 @@
   padding: 0 20px;
 }
 
+.review-slider-wrapper {
+  position: relative;
+}
+
 .review-title {
   font-weight: 700;
   font-size: 36px;
@@ -38,6 +42,8 @@
   position: static !important;
   transform: none !important;
   margin-right: auto;
+  display: flex !important;
+  margin-right: auto !important;
 }
 
 .review-pagination .swiper-pagination-bullet {
@@ -52,7 +58,9 @@
 .review-controls {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
+  position: relative;
+  margin-top: 32px;
 }
 
 .review-desc {
@@ -74,6 +82,7 @@
   border: 2px solid #080c0c;
   background-color: #f5fdfd;
   flex-shrink: 0;
+  z-index: 10;
 }
 
 .review-btn.next {
@@ -89,6 +98,115 @@
   color: #080c0c;
 }
 
-.review-controls {
+/* =========================
+   375px+
+========================= */
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .review-container {
+    max-width: 375px;
+    margin: 0 auto;
+  }
+
+  .review-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+  }
+
+  .review-pagination {
+    display: flex !important;
+    width: auto !important;
+    margin: 0 !important;
+    margin-right: auto !important;
+  }
+
+  .review-btn {
+    position: static;
+  }
+
+  .review-btn.prev,
+  .review-btn.next {
+    position: static;
+    transform: none;
+  }
+
+  .review-controls .review-btn {
   display: flex;
+}
+
+.review-slider-wrapper .review-btn {
+  display: none;
+}
+}
+
+/* =========================
+   768px+ (Tablet)
+========================= */
+@media screen and (min-width: 768px) {
+  .review-container {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  .review-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-top: 32px;
+  }
+
+  .review-pagination {
+    position: static;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    width: 100% !important;
+    margin: 0;
+  }
+
+  .review-btn.prev {
+    position: absolute;
+    left: -24px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .review-btn.next {
+    position: absolute;
+    right: -24px;
+    margin-left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .review-controls .review-btn {
+  display: none;
+  }
+
+  .review-slider-wrapper .review-btn {
+  display: flex;
+  }
+}
+
+/* =========================
+   1440px+ (Desktop)
+========================= */
+@media screen and (min-width: 1440px) {
+  .review-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .review-slider-wrapper {
+    padding: 0px;
+  }
+
+  .review-btn.prev {
+    left: -24px;
+  }
+
+  .review-btn.next {
+    right: -24px;
+  }
 }
