@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 
 const BASE_URL = 'https://deserts-store.b.goit.study/api/feedbacks/';
 
-const limit = 10;
+const limit = 8;
 
 async function getFeedbacksResponse(page = 1) {
   try {
@@ -76,9 +76,14 @@ async function init() {
 
     pagination: {
       el: '.review-pagination',
-      clickable: true,
-      dynamicBullets: true,
-      draggable: true,
+  clickable: true,
+  dynamicBullets: false,
+  renderBullet: function (index, className) {
+    if (index < 6) {
+      return '<span class="' + className + '"></span>';
+    }
+    return '';
+      },
     },
 
     navigation: {
