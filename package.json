@@ -18,6 +18,11 @@
   "license": "ISC",
   "dependencies": {
     "accordion-js": "^3.4.1",
+    "axios": "^1.16.1",
+    "izitoast": "^1.4.0",
+    "@fortawesome/fontawesome-free": "^7.2.0",
+    "raty-js": "^4.3.0",
+    "swiper": "^12.1.4",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-html-inject": "^1.1.2"
   }
