@@ -33,24 +33,40 @@
 
 /* Пагінація — зліва */
 .popular-pagination {
-  position: static !important;
-  display: flex;
-  gap: 8px;
+  position: relative !important;
+  display: block !important;
+  width: 100px !important;
+  height: 8px !important;
   margin: 0 !important;
+  left: 0 !important;
+  transform: none !important;
 }
 
 .popular-pagination .swiper-pagination-bullet {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--color-neutral-lighter);
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background-color: var(--color-neutral-lighter) !important;
   opacity: 1 !important;
   cursor: pointer;
   transition: background-color 0.3s;
+  transform: none !important;
 }
 
-.popular-pagination .swiper-pagination-bullet-active {
-  background-color: var(--color-neutral-darkest);
+.popular-pagination .swiper-pagination-bullet-active,
+.popular-pagination .swiper-pagination-bullet-active-main {
+  background-color: var(--color-neutral-darkest) !important;
+  transform: none !important;
+}
+
+.popular-pagination .swiper-pagination-bullet-active-prev,
+.popular-pagination .swiper-pagination-bullet-active-next,
+.popular-pagination .swiper-pagination-bullet-active-prev-prev,
+.popular-pagination .swiper-pagination-bullet-active-next-next {
+  transform: none !important;
+  width: 8px !important;
+  height: 8px !important;
+  opacity: 1 !important;
 }
 
 /* ── Картка ───────────────────────────────────────────────── */
@@ -61,12 +77,8 @@
   border: 1px solid var(--color-neutral-darkest);
   border-radius: 16px;
   background-color: var(--color-white);
-  transition: transform 0.3s;
   overflow: hidden;
-}
-
-.popular-products .dessert-card:hover {
-  transform: translateY(-4px);
+  padding: 16px;
 }
 
 .popular-products .dessert-card__img {
@@ -74,6 +86,7 @@
   aspect-ratio: 303 / 228;
   overflow: hidden;
   flex-shrink: 0;
+  border-radius: 8px;
 }
 
 .popular-products .dessert-card__img img {
@@ -87,23 +100,21 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 16px;
+  padding: 16px 16px 16px 0;
 }
 
 .popular-products .dessert-card__category {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 400;
   line-height: 1.5;
   color: var(--color-neutral-darkest);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
   margin-bottom: 8px;
 }
 
 .popular-products .dessert-card__name {
   font-weight: 600;
   font-size: 18px;
-  line-height: 1.4;
+  line-height: 1.5;
   color: var(--color-neutral-darkest);
   margin-bottom: 8px;
   flex: 1;
@@ -111,6 +122,7 @@
 
 .popular-products .dessert-card__desc {
   font-size: 14px;
+  font-weight: 400;
   line-height: 1.5;
   color: var(--color-scheme-1-text);
   margin-bottom: 12px;
@@ -162,7 +174,7 @@
   }
 }
 
-/* Кнопки навігації — квадратні як на макеті */
+/* Кнопки навігації */
 .popular-products__nav .swiper-nav-btn {
   width: 44px;
   height: 44px;
