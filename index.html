@@ -19,9 +19,9 @@
       referrerpolicy="no-referrer"
     />
     <script type="module" crossorigin src="/project-CodeWave/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-CodeWave/assets/vendor-BdBE7nqo.js">
+    <link rel="modulepreload" crossorigin href="/project-CodeWave/assets/vendor-DCJ7o4bz.js">
     <link rel="stylesheet" crossorigin href="/project-CodeWave/assets/vendor-DYG6mRyf.css">
-    <link rel="stylesheet" crossorigin href="/project-CodeWave/assets/index-DzTox9UV.css">
+    <link rel="stylesheet" crossorigin href="/project-CodeWave/assets/index-BpKEEKUg.css">
   </head>
 
   <body>
@@ -79,6 +79,44 @@
       увагою до деталей. Кожен шматочок — це справжнє свято смаку!
     </p>
     <a href="#reviews" class="hero-btn"> Що про нас думають</a>
+  </div>
+</section>
+
+      <section class="popular-products" id="popular">
+  <div class="container">
+    <h2 class="section-title">Наші <em>бестселери</em></h2>
+
+    <div class="swiper popular-swiper">
+      <div class="swiper-wrapper" id="popularSwiperWrapper"></div>
+    </div>
+
+    <div class="popular-products__controls">
+      <div class="swiper-pagination popular-pagination"></div>
+      <div class="popular-products__nav">
+        <button class="swiper-nav-btn" id="popularPrev" aria-label="Попередній">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M15 18L9 12L15 6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <button class="swiper-nav-btn" id="popularNext" aria-label="Наступний">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M9 18L15 12L9 6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -314,7 +352,6 @@
     </div>
   </div>
 </section>
-      
     </main>
 
     <footer>
@@ -380,7 +417,69 @@
 
     </footer>
 
-    
+    <div
+  class="modal-overlay"
+  id="orderOverlay"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Оформлення замовлення"
+  hidden
+>
+  <div class="modal order-modal" id="orderModal">
+    <button class="modal__close" id="orderClose" aria-label="Закрити">✕</button>
+
+    <h2 class="order-modal__title">Оформлення замовлення</h2>
+
+    <form class="order-form" id="orderForm" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="orderName">Ім'я*</label>
+        <input
+          class="form-input"
+          type="text"
+          id="orderName"
+          name="name"
+          placeholder="Іван Франко"
+          required
+          autocomplete="given-name"
+        />
+        <span class="form-error" id="nameError"></span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="orderPhone">Телефон*</label>
+        <input
+          class="form-input"
+          type="tel"
+          id="orderPhone"
+          name="phone"
+          placeholder="380961234568"
+          required
+          autocomplete="tel"
+        />
+        <span class="form-error" id="phoneError"></span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="orderComment">Коментар*</label>
+        <textarea
+          class="form-input form-textarea"
+          id="orderComment"
+          name="comment"
+          placeholder="Зателефонуйте, будь-ласка, для уточнення деталей."
+          required
+        ></textarea>
+        <span class="form-error" id="commentError"></span>
+      </div>
+
+      <div class="form-submit-wrap">
+        <button type="submit" class="btn btn-accent form-submit">
+          Надіслати заявку
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
     
 
   </body>
