@@ -1,0 +1,15 @@
+[33m46693de[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/about-us-section[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Merge pull request #5 from OksanaMartyniuk-hub/dessert_list
+[33mbff8177[m Resolve merge conflict in package.json
+[33md5b513c[m Merge pull request #6 from OksanaMartyniuk-hub/header-section
+[33m5861f5b[m Merge pull request #4 from OksanaMartyniuk-hub/feedback.mobile.CSS/final.JS
+[33m6589b2e[m Merge pull request #2 from OksanaMartyniuk-hub/feedback-section.markup
+[33m45af21e[m установка npm
+[33m4369c7b[m начало работы с хедер
+[33m5567b76[m Implement desserts filtering and pagination
+[33mc860538[m added swiper into JS. lil fix in HTML. Mobile CSS.
+[33m5effabb[m feedback-section.JS downloaded @fortawesome/fontawesome-free to get the stars. donwloaded AXIOS. done the fetches and render function.
+[33m70546df[m feedbacks.markup html and downloaded raty.js, swiper
+[33mc5bc997[m Merge pull request #1 from OksanaMartyniuk-hub/feature/setup
+[33m47dfc81[m setup changes
+[33m13ea9cc[m setup
+[33m09c4317[m Initial commit
