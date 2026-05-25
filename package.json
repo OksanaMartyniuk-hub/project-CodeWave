@@ -17,10 +17,7 @@
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
-=======
     "@fortawesome/fontawesome-free": "^7.2.0",
->>>>>>> 0a6b02a
     "accordion-js": "^3.4.1",
     "axios": "^1.16.1",
     "izitoast": "^1.4.0",
