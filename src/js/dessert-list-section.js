@@ -176,7 +176,7 @@ function renderCategories(categories) {
 function renderDesserts(arr) {
   const markup = arr
     .map(({ _id, name, description, price, category, image }) => {
-      return `          <li class="desserts-card" id="${_id}">
+      return `          <li class="desserts-card" id="${_id}" data-dessert>
             <div class="desserts-card-media">
               <img
                 src="${image}"
@@ -191,7 +191,7 @@ function renderDesserts(arr) {
                 </p>
               <div class="desserts-card-bottom">
                 <p class="desserts-card-price">${price} грн</p>
-                <button class="desserts-card-button" type="button" aria-label="Відкрити десерт">
+                <button class="desserts-card-button" type="button" aria-label="Відкрити десерт" data-id="${_id}" data-open-modal>
                   <svg class="desserts-card-icon" width="24" height="24">
                     <use href="/img/sprite.svg#icon-arrow_outward"></use>
                   </svg>
