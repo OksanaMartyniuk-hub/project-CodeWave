@@ -4,6 +4,38 @@ import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
+import brownieImg from '../img/popular-products-section/brownie.png';
+import cupcakeImg from '../img/popular-products-section/cupcake.png';
+import fondantImg from '../img/popular-products-section/fondant.png';
+
+// ── Статичні картки ────────────────────────────────────────
+const STATIC_DESSERTS = [
+  {
+    _id: 'static-1',
+    name: 'Брауні з горіхами',
+    category: 'Шоколадні випічки',
+    description: 'Соковитий шоколадний пиріг з хрусткими горіхами.',
+    price: 110,
+    img: brownieImg,
+  },
+  {
+    _id: 'static-2',
+    name: 'Фруктовий тарт',
+    category: 'Фруктові десерти',
+    description: 'Пісочна основа з заварним кремом та свіжими фруктами.',
+    price: 140,
+    img: cupcakeImg,
+  },
+  {
+    _id: 'static-3',
+    name: 'Лавандовий кекс',
+    category: 'Гарячі десерти',
+    description: 'Ароматний кекс з ніжним лавандовим смаком.',
+    price: 90,
+    img: fondantImg,
+  },
+];
+
 // ── Dessert Card ───────────────────────────────────────────
 function createDessertCardHTML(dessert) {
   const img =
@@ -14,7 +46,6 @@ function createDessertCardHTML(dessert) {
 
   const rawCat = dessert.category || '';
   const category = typeof rawCat === 'object' ? rawCat?.name || '' : rawCat;
-
   const price = dessert.price !== undefined ? dessert.price + ' грн' : '';
   const desc = dessert.description || dessert.shortDescription || '';
   const id = dessert._id || dessert.id;
@@ -52,9 +83,15 @@ const instance = axios.create({
   baseURL: 'https://deserts-store.b.goit.study/api',
 });
 
-const getPopularDesserts = () =>
+const LIMIT = 10;
+let currentPage = 1;
+let totalItems = 0;
+let isLoading = false;
+let swiperInstance = null;
+
+const getPopularDesserts = page =>
   instance
-    .get('/desserts', { params: { type: 'popular' } })
+    .get('/desserts', { params: { type: 'popular', limit: LIMIT, page } })
     .then(res => res.data);
 
 // ── Loader ─────────────────────────────────────────────────
@@ -92,34 +129,60 @@ function toastError(message) {
   iziToast.error({ title: 'Помилка', message, ...toastOptions });
 }
 
+// ── Load more ──────────────────────────────────────────────
+async function loadMoreDesserts() {
+  if (isLoading) return;
+  const loadedItems = currentPage * LIMIT;
+  if (loadedItems >= totalItems) {
+    iziToast.info({
+      title: 'Інфо',
+      message: 'Всі десерти завантажені',
+      ...toastOptions,
+    });
+    return;
+  }
+
+  isLoading = true;
+  currentPage++;
+
+  try {
+    const data = await withLoader(() => getPopularDesserts(currentPage));
+    const desserts = data.desserts || [];
+
+    const swiperWrapper = document.getElementById('popularSwiperWrapper');
+    if (!swiperWrapper || !swiperInstance) return;
+
+    desserts.forEach(d => {
+      const slide = document.createElement('div');
+      slide.className = 'swiper-slide';
+      slide.innerHTML = createDessertCardHTML(d);
+      swiperWrapper.appendChild(slide);
+    });
+
+    swiperInstance.update();
+    updateNavBtns(swiperInstance);
+  } catch (err) {
+    toastError('Помилка підвантаження: ' + err.message);
+    currentPage--;
+  } finally {
+    isLoading = false;
+  }
+}
+
 // ── Init ───────────────────────────────────────────────────
 async function initPopularProducts() {
   const wrapper = document.getElementById('popularSwiperWrapper');
   if (!wrapper) return;
 
-  let desserts = [];
-  try {
-    const data = await withLoader(() => getPopularDesserts());
-    desserts = Array.isArray(data)
-      ? data
-      : data.results || data.desserts || data.data || [];
-  } catch (err) {
-    toastError('Не вдалося завантажити популярні товари');
-    return;
-  }
+  // Показуємо статичні картки одразу
+  wrapper.innerHTML = STATIC_DESSERTS.map(
+    d => `<div class="swiper-slide">${createDessertCardHTML(d)}</div>`
+  ).join('');
 
-  if (!desserts.length) {
-    document.querySelector('.popular-products')?.remove();
-    return;
-  }
-
-  wrapper.innerHTML = desserts
-    .map(d => `<div class="swiper-slide">${createDessertCardHTML(d)}</div>`)
-    .join('');
-
-  new Swiper('.popular-swiper', {
+  swiperInstance = new Swiper('.popular-swiper', {
     modules: [Navigation, Pagination],
     slidesPerView: 1,
+    watchOverflow: false,
     spaceBetween: 20,
     navigation: {
       prevEl: '#popularPrev',
@@ -129,12 +192,13 @@ async function initPopularProducts() {
     pagination: {
       el: '.popular-pagination',
       clickable: true,
+      dynamicBullets: true,
+      dynamicMainBullets: 1,
     },
     breakpoints: {
-      375: { slidesPerView: 1.2 },
+      375: { slidesPerView: 1 },
       640: { slidesPerView: 2 },
       1024: { slidesPerView: 3 },
-      1280: { slidesPerView: 4 },
     },
     on: {
       init(swiper) {
@@ -142,9 +206,31 @@ async function initPopularProducts() {
       },
       slideChange(swiper) {
         updateNavBtns(swiper);
+        if (swiper.isEnd) {
+          loadMoreDesserts();
+        }
       },
     },
   });
+
+  // Підвантажуємо з бекенду в фоні
+  try {
+    const data = await withLoader(() => getPopularDesserts(currentPage));
+    const desserts = data.desserts || [];
+    totalItems = data.totalItems || desserts.length;
+
+    desserts.forEach(d => {
+      const slide = document.createElement('div');
+      slide.className = 'swiper-slide';
+      slide.innerHTML = createDessertCardHTML(d);
+      wrapper.appendChild(slide);
+    });
+
+    swiperInstance.update();
+    updateNavBtns(swiperInstance);
+  } catch (err) {
+    toastError('Не вдалося завантажити популярні товари');
+  }
 }
 
 function updateNavBtns(swiper) {
