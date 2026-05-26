@@ -86,7 +86,7 @@ function renderModal({
         <p class="details-modal-ingredients">
           <span class="details-modal-ingredients-accent">Склад</span>: ${composition}
         </p>
-        <button class="details-modal-button" type="button" data-id="${_id}">
+        <button class="details-modal-button js-open-order" type="button" data-id="${_id}">
           Перейти до замовлення
         </button>
       </div>`;
@@ -140,6 +140,10 @@ function closeModal() {
 }
 
 function onCloseButton(event) {
+  if (event.target.closest('.js-open-order')) {
+    closeModal();
+    return;
+  }
   if (!event.target.closest('[data-details-modal-close]')) return;
   closeModal();
 }
