@@ -64,6 +64,7 @@ function createDessertCardHTML(dessert) {
           <button
             class="dessert-card__btn js-open-details"
             data-id="${id}"
+            data-open-modal
             aria-label="Детальніше про ${dessert.name}"
             type="button"
           >
