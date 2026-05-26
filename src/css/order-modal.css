@@ -2,7 +2,7 @@
 #orderOverlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(8, 12, 12, 0.5);
+  background-color: rgba(8, 12, 12, 0.4);
   z-index: 600;
   display: flex;
   align-items: center;
@@ -27,8 +27,27 @@
 }
 
 @media (max-width: 767px) {
+  #orderOverlay {
+    padding: 16px;
+  }
+
   .order-modal {
-    padding: 40px 24px;
+    padding: 50px 20px 32px;
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .order-modal__title {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .order-form {
+    gap: 16px;
+  }
+
+  .form-textarea {
+    min-height: 100px;
   }
 }
 
@@ -40,8 +59,7 @@
   width: 32px;
   height: 32px;
   background: none;
-  border: 1.5px solid var(--color-neutral-darkest);
-  border-radius: 6px;
+  border: none;
   font-size: 1rem;
   color: var(--color-neutral-darkest);
   cursor: pointer;
@@ -63,6 +81,7 @@
   color: var(--color-neutral-darkest);
   margin-bottom: 48px;
   line-height: 1.2;
+  letter-spacing: -0.01em;
   text-align: center;
 }
 
