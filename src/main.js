@@ -10,3 +10,4 @@ import './js/feedback-section.js';
 
 import './js/order-modal.js';
 import './js/dessert-details-modal.js';
+import './js/mobile-menu.js';
