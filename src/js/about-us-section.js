@@ -91,10 +91,4 @@ function initSlider() {
   updateSlider();
 }
 
-const checkExist = setInterval(() => {
-  const trackExists = document.querySelector('.slider-track');
-  if (trackExists) {
-    clearInterval(checkExist);
-    initSlider();
-  }
-}, 50);
+document.addEventListener('DOMContentLoaded', initSlider);
