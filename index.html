@@ -21,7 +21,7 @@
     <script type="module" crossorigin src="/project-CodeWave/index.js"></script>
     <link rel="modulepreload" crossorigin href="/project-CodeWave/assets/vendor-DdBOpbMR.js">
     <link rel="stylesheet" crossorigin href="/project-CodeWave/assets/vendor-D8M0CCqR.css">
-    <link rel="stylesheet" crossorigin href="/project-CodeWave/assets/index-DHbLtGNM.css">
+    <link rel="stylesheet" crossorigin href="/project-CodeWave/assets/index-DQ2LDes9.css">
   </head>
 
   <body>
@@ -73,8 +73,17 @@
       class="open-burger-btn"
       aria-label="Відкрити навігаційне меню"
     >
-      <svg class="open-burger-btn" width="24" height="24">
+      <svg class="open-burger-btn" width="24" height="24" data-open-menu>
         <use href="/project-CodeWave/assets/sprite-BVdYNxHi.svg#icon-menu"></use>
+      </svg>
+
+      <svg
+        class="close-burger-btn hidden"
+        width="24"
+        height="24"
+        data-close-menu
+      >
+        <use href="/project-CodeWave/assets/sprite-BVdYNxHi.svg#icon-close"></use>
       </svg>
     </button>
   </div>
@@ -587,7 +596,28 @@
   </div>
 </div>
 
-    
+    <div class="mobile-menu">
+  <div class="container">
+    <nav class="mobile-nav">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item">
+          <a href="#sweets" class="mobile-nav-link">Солодощі</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#about-us" class="mobile-nav-link">Про нас</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#feedbacks" class="mobile-nav-link">Відгуки</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#faq" class="mobile-nav-link">Часті запитання</a>
+        </li>
+      </ul>
+      <a class="mobile-order-btn" href="#sweets">До покупок</a>
+    </nav>
+  </div>
+</div>
+
 
   </body>
 </html>
