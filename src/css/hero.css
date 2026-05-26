@@ -17,8 +17,11 @@ html {
     background-size: cover;
 }
 
-.hero-content {
+.hero .hero-content.container {
     padding: 156px 22px;
+}
+
+.hero-content {
     text-align: center;
     color: #fff;
 }
@@ -86,8 +89,8 @@ html {
 
 /* Retina mobile */
 
-@media screen and (min-resolution: 2x),
-(min-device-pixel-ratio: 2) {
+@media screen and (max-width: 767px) and (min-resolution: 2x),
+screen and (max-width: 767px) and (min-device-pixel-ratio: 2) {
     .hero {
         background-image:
             linear-gradient(to bottom,
@@ -112,7 +115,7 @@ html {
         max-width: 768px;
     }
 
-    .hero-content {
+    .hero .hero-content.container {
         padding: 325px 32px;
     }
 
@@ -120,8 +123,8 @@ html {
 
 /* Retina tablet */
 
-@media screen and (min-resolution: 2x),
-(min-device-pixel-ratio: 2) {
+@media screen and (min-width: 768px) and (max-width: 1439px) and (min-resolution: 2x),
+screen and (min-width: 768px) and (max-width: 1439px) and (min-device-pixel-ratio: 2) {
     .hero {
         background-image:
             linear-gradient(to bottom,
@@ -146,15 +149,19 @@ html {
         max-width: 1440px;
     }
 
-    .hero-content {
+    .hero .hero-content.container {
         padding: 306px 336px;
+    }
+    
+    .hero-title {
+        font-size: 56px;
     }
 }
 
 /* Retina desktop */
 
-@media screen and (min-resolution: 2x),
-(min-device-pixel-ratio: 2x){
+@media screen and (min-width: 1440px) and (min-resolution: 2x),
+screen and (min-width: 1440px) and (min-device-pixel-ratio: 2){
     .hero {
         background-image:
             linear-gradient(to bottom,
