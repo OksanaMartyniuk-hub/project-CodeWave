@@ -1,116 +1,149 @@
-.header-container{
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    height: 72px;
+  }
+}
+
+.header-logo-nav {
+  display: flex;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @media screen and (min-width: 768px) {
-        display: block;
-        height: 72px;
-    }
+    width: 100%;
+  }
 }
 
-.header-logo-nav{
-    @media screen and (min-width: 768px){
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+.logo-link {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  text-decoration: none;
 }
 
-.header-nav{
-    display: none;
-
-    @media screen and (min-width: 768px){
-        display: flex;
-        column-gap: 16px;
-    }
+.header-logo-icon {
+  display: block;
+  flex-shrink: 0;
 }
 
-.header-nav-list{
-    @media screen and (min-width: 768px){
-        display: flex;
-        align-items: center;
-        column-gap: 16px;
-    }
-
-    @media screen and (min-width: 1440px){
-        column-gap: 32px;
-    }
+.logo-text {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.15;
+  color: #080c0c;
+  text-transform: capitalize;
 }
 
-.header-nav-item{
-    font-family: Work Sans;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #080C0C;
-}
+.header-nav {
+  display: none;
 
-.header-nav-item:active{
-    color: #F19898
-}
-
-.header-nav-link{
-    position: relative;
-
-    &::after,
-    &::after{
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 1px;
-        bottom: -2px;
-        left: 0;
-        transition: 
-          width 250ms linear,
-          background-color 250ms linear;
-    }
-
-    &:hover::after,
-    &:focus::after{
-        width: 100%;
-        background-color: #080C0C;
-    }
-}
-
-.open-burger-btn{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    background-color: transparent;
-    border: none;
-    transition: transform 250ms linear;
-
-    @media screen and (min-width: 768px){
-        display: none;
-    }
-}
-
-.order-btn{
+  @media screen and (min-width: 768px) {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 133px;
-    height: 40px;
-    border: none;
-    background-color: #F19898;
-    border-radius: 100px;
+    column-gap: 16px;
+  }
+}
 
-    font-family: Work Sans;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #080C0C;
-    transition: 
-      border-color 250ms linear,
+.header-nav-list {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    column-gap: 32px;
+  }
+}
+
+.header-nav-item {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #080c0c;
+}
+
+.header-nav-item:active {
+  color: #f19898;
+}
+
+.header-nav-link {
+  position: relative;
+  color: #080c0c;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #080c0c; /* Перенесено сюди для чистоти коду */
+    transition:
+      width 250ms linear,
       background-color 250ms linear;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    width: 100%;
+  }
+}
+
+.open-burger-btn {
+  display: flex;
+  align-items: center; /* Вирівнює іконку всередині кнопки */
+  text-align: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 250ms linear;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.order-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 133px;
+  height: 40px;
+  border: 2px solid transparent; /* Додано невидиму рамку, щоб кнопка не сіпалася при ховері */
+  background-color: #f19898;
+  border-radius: 100px;
+  text-decoration: none;
+
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #080c0c;
+  transition:
+    border-color 250ms linear,
+    background-color 250ms linear;
 }
 
 .order-btn:hover,
 .order-btn:focus {
-    background-color: transparent;
-    border: 2px solid #080C0C;
+  background-color: transparent;
+  border-color: #080c0c;
 }
 
-.order-btn:active{
-    background-color: #F19898;
+.order-btn:active {
+  background-color: #f19898;
 }
