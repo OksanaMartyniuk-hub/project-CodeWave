@@ -6,10 +6,15 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import sprite from '../img/sprite.svg';
 
 const BASE_URL = 'https://deserts-store.b.goit.study/api/feedbacks/';
 
 const limit = 8;
+
+document.querySelectorAll('.icon-arrow use').forEach(icon => {
+  icon.setAttribute('href', `${sprite}#icon-arrow`);
+});
 
 async function getFeedbacksResponse(page = 1) {
   try {
@@ -76,13 +81,13 @@ async function init() {
 
     pagination: {
       el: '.review-pagination',
-  clickable: true,
-  dynamicBullets: false,
-  renderBullet: function (index, className) {
-    if (index < 6) {
-      return '<span class="' + className + '"></span>';
-    }
-    return '';
+      clickable: true,
+      dynamicBullets: false,
+      renderBullet: function (index, className) {
+        if (index < 6) {
+          return '<span class="' + className + '"></span>';
+        }
+        return '';
       },
     },
 
