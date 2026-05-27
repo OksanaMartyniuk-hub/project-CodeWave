@@ -12,18 +12,18 @@
 
   .footer-logo {
       margin: 35px 8px 35px 2px;
+      transition:
+        fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .footer-logo-icon {
       display: block;
       max-width: 100%;
       height: auto;
-      transition:
-          fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .footer-logo-icon:hover,
-  .footer-logo-icon:focus {
+  .footer-logo:hover,
+  .footer-logo:focus {
       fill: #41a4a4;
   }
 
