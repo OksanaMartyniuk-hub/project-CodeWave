@@ -126,9 +126,8 @@
   }
 
   .slider-btn svg {
-    stroke: var(--color-neutral-darkest);
-    fill: none;
-    stroke-width: 3;
+    fill: var(--color-neutral-darkest);
+    stroke-width: 0.6;
   }
 
   .prev {
