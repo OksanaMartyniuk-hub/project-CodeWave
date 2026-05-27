@@ -1,3 +1,4 @@
+import sprite from './img/sprite.svg';
 import './js/header.js';
 import './js/footer.js';
 

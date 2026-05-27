@@ -1,6 +1,7 @@
 import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import spriteUrl from '../img/sprite.svg';
 
 const selectWrapper = document.querySelector('.desserts-select-wrapper');
 const trigger = selectWrapper.querySelector('.desserts-select-trigger');
@@ -193,7 +194,7 @@ function renderDesserts(arr) {
                 <p class="desserts-card-price">${price} грн</p>
                 <button class="desserts-card-button" type="button" aria-label="Відкрити десерт" data-id="${_id}" data-open-modal>
                   <svg class="desserts-card-icon" width="24" height="24">
-                    <use href="/img/sprite.svg#icon-arrow_outward"></use>
+                    <use href="${spriteUrl}#icon-arrow_outward"></use>
                   </svg>
                 </button>
               </div>
