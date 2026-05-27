@@ -1,6 +1,7 @@
 import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import spriteUrl from '../img/sprite.svg';
 
 const dessertsList = document.querySelector('.desserts-list');
 const popularList = document.querySelector('#popularSwiperWrapper');
@@ -64,7 +65,7 @@ function renderModal({
         aria-label="Закрити модальне вікно"
       >
         <svg class="details-modal-close-icon" width="24" height="24">
-          <use href="/img/sprite.svg#icon-close"></use>
+          <use href="${spriteUrl}#icon-close"></use>
         </svg>
       </button>
   <div class="details-modal-media">
@@ -106,7 +107,7 @@ function renderRate(rate) {
     starsRate += `
       <li class="details-modal-star">
         <svg class="details-modal-star-icon" width="16" height="15.2">
-          <use href="/img/sprite.svg#icon-star"></use>
+          <use href="${spriteUrl}#icon-star"></use>
         </svg>
       </li>`;
   }
@@ -115,7 +116,7 @@ function renderRate(rate) {
     starsRate += `
       <li class="details-modal-star">
         <svg class="details-modal-star-icon" width="16" height="15.2">
-          <use href="/img/sprite.svg#icon-half-star"></use>
+          <use href="${spriteUrl}#icon-half-star"></use>
         </svg>
       </li>`;
   }
@@ -124,7 +125,7 @@ function renderRate(rate) {
     starsRate += `
       <li class="details-modal-star">
         <svg class="details-modal-empty-star-icon" width="16" height="15.2">
-          <use href="/img/sprite.svg#icon-star"></use>
+          <use href="${spriteUrl}#icon-star"></use>
         </svg>
       </li>`;
   }
