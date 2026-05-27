@@ -3,6 +3,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import spriteUrl from '/img/sprite.svg';
 
 // ── ID перших 3 карток ─────────────────────────────────────
 const STATIC_IDS = [
@@ -43,9 +44,8 @@ function createDessertCardHTML(dessert) {
             aria-label="Детальніше про ${dessert.name}"
             type="button"
           >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 13L13 3M13 3H6M13 3V10"
-                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="16" height="16" aria-hidden="true">
+                <use href="${spriteUrl}#icon-arrow_outward"></use>
             </svg>
           </button>
         </div>
