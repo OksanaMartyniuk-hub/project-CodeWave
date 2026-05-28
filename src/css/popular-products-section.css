@@ -180,21 +180,32 @@
   fill: currentColor;
 }
 .popular-products__nav .swiper-nav-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1.5px solid var(--color-neutral-darkest);
+  border: 2px solid var(--color-neutral-darkest);
   background-color: transparent;
   color: var(--color-neutral-darkest);
+
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
-.popular-products__nav .swiper-nav-btn:hover {
-  background-color: var(--color-neutral-darkest);
-  color: var(--color-white);
+.popular-products__nav .swiper-nav-btn:hover,
+.popular-products__nav .swiper-nav-btn:focus {
+  background-color: var(--color-wewak);
+}
+
+.popular-products__nav .swiper-nav-btn:active {
+  background-color: var(--color-wewak-dark);
 }
 
 .popular-products__nav .swiper-nav-btn:disabled {
-  opacity: 0.35;
+  opacity: 0.3;
   pointer-events: none;
 }
 
