@@ -170,7 +170,7 @@
 
 @media (max-width: 767px) {
   .popular-products__nav {
-    display: none;
+    display: flex;
   }
 }
 
